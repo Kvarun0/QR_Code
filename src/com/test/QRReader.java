@@ -9,11 +9,9 @@ import com.google.zxing.common.HybridBinarizer;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.io.File;
-
 public class QRReader {
     public static void main(String[] args) {
         try {
-
             //Choosing Qr Code For decode
             JFileChooser ch=new JFileChooser();
             ch.showOpenDialog(null);
@@ -21,10 +19,8 @@ public class QRReader {
             if (file==null){
                 throw  new Exception("invalid file");
             }
-
             //decoding qr Code
             Result r=new MultiFormatReader().decode(new BinaryBitmap(new HybridBinarizer(new BufferedImageLuminanceSource(ImageIO.read(file)))));
-
             //for printing result at desktop
             JOptionPane.showMessageDialog(null,r.getText());
         }
